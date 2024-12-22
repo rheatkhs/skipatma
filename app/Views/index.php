@@ -5,11 +5,10 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>PPDB SMK Islam 45 Wiradesa</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="PPDB SMK Islam 45 Wiradesa" name="description">
+    <meta content="PPDB, SMK Islam 45 Wiradesa" name="keywords">
     <!-- Favicons -->
-    <link href="<?= base_url('assets/img/logo.png') ?>" rel="icon">
-    <link href="<?= base_url('assets/img/apple-touch-icon.png') ?>" rel="apple-touch-icon">
+    <link rel="shortcut icon" href="https://skipatma.vercel.app/img/logo.png">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <!-- Vendor CSS Files -->
