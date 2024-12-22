@@ -215,7 +215,7 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.0199559015737!2d109.61146637499623!3d-6.888212793110861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7027aa9b37ca95%3A0x492aed8487eccd83!2sSMK%20Islam%2045%20Wiradesa!5e0!3m2!1sid!2sid!4v1734858368688!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
                     </div>
                     <div class="col-lg-6">
-                        <form action="https://ppdb2024.smk2pekalongan.sch.id/forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="<?= base_url('sendMessage') ?>" method="post" role="form" class="php-email-form">
                             <div class="row">
                                 <div class="col form-group">
                                     <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
@@ -223,9 +223,6 @@
                                 <div class="col form-group">
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subjek" required>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
