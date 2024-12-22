@@ -150,14 +150,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="table-responsive">
-                            <table id="calonPesertaDidik" class="table table-striped table-bordered table-responsive">
-                                <thead class="text-center">
+                            <table id="calonPesertaDidik" class="table table-striped table-bordered">
+                                <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>NISN</th>
-                                        <th>Nama</th>
-                                        <th>Kompetensi Keahlian</th>
-                                        <th>Asal Sekolah</th>
+                                        <th style="text-align: center !important;">NISN</th>
+                                        <th style="text-align: center !important;">Nama Peserta Didik</th>
+                                        <th style="text-align: center !important;">Kompetensi Keahlian</th>
+                                        <th style="text-align: center !important;">Asal Sekolah</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -214,22 +214,23 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.0199559015737!2d109.61146637499623!3d-6.888212793110861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7027aa9b37ca95%3A0x492aed8487eccd83!2sSMK%20Islam%2045%20Wiradesa!5e0!3m2!1sid!2sid!4v1734858368688!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
                     </div>
                     <div class="col-lg-6">
-                        <form action="<?= base_url('sendMessage') ?>" method="post" role="form" class="php-email-form">
+                        <?php if (session()->getFlashdata('success')) : ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <?= session()->getFlashdata('success') ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php endif; ?>
+                        <form action="<?= base_url('sendMessage') ?>" method="post" class="php-email-form">
                             <div class="row">
                                 <div class="col form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Nama" required>
+                                    <input type="text" name="nama" class="form-control" id="name" placeholder="Nama" required>
                                 </div>
                                 <div class="col form-group">
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                                <textarea class="form-control" name="pesan" rows="5" placeholder="Pesan" required></textarea>
                             </div>
                             <div class="text-center"><button type="submit">Kirim Pesan</button></div>
                         </form>
@@ -279,7 +280,7 @@
             </div>
         </div>
     </footer>
-    <div id="preloader"></div>
+    <!-- <div id="preloader"></div> -->
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
     <script src="<?= base_url('assets/vendor/jquery/jquery-3.5.1.js') ?>"></script>
     <!-- Vendor JS Files -->
@@ -297,9 +298,7 @@
     <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#calonPesertaDidik').DataTable({
-                responsive: true
-            });
+            $('#calonPesertaDidik').DataTable();
         });
     </script>
 </body>
