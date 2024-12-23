@@ -48,7 +48,6 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#pendaftaran">Pendaftaran</a></li>
-                    <li><a class="nav-link scrollto" href="#pendaftar">Pendaftar</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -84,7 +83,8 @@
                                 <?php endif; ?>
                                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
                                     <strong>Perhatian!</strong> <br>
-                                    <small>Pastikan Data Anda Sudah Benar Sebelum Menekan Tombol Daftar.</small>
+                                    <small>Pastikan Data Anda Sudah Benar Sebelum Menekan Tombol Daftar. <br>
+                                        Setelah Daftar Silahkan Masuk Grup WhatsApp di <a class="fw-bold" href="https://smkislam45wiradesa.sch.id/grup_whatsapp" target="_blank">https://smkislam45wiradesa.sch.id/grup_whatsapp</a></small>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                                 <form action="<?= base_url('storePendaftaran') ?>" method="post">
