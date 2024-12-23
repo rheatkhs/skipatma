@@ -220,7 +220,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php endif; ?>
-                        <form action="<?= base_url('sendMessage') ?>" method="post" class="php-email-form">
+                        <form action="<?= base_url('sendMessage') ?>" method="post">
                             <div class="row">
                                 <div class="col form-group">
                                     <input type="text" name="nama" class="form-control" id="name" placeholder="Nama" required>
@@ -229,10 +229,10 @@
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mt-3">
                                 <textarea class="form-control" name="pesan" rows="5" placeholder="Pesan" required></textarea>
                             </div>
-                            <div class="text-center"><button type="submit">Kirim Pesan</button></div>
+                            <div class="text-center mt-3"><button class="btn btn-dark" type="submit">Kirim Pesan</button></div>
                         </form>
                     </div>
                 </div>
