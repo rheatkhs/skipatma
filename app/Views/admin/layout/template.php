@@ -49,7 +49,7 @@
                                 <p class="mb-1 mt-3 font-weight-semibold">Nama Admin</p>
                                 <p class="fw-light text-muted mb-0">email@admin.com</p>
                             </div>
-                            <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+                            <a class="dropdown-item" href="<?= base_url('admin/sign_out') ?>"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
                         </div>
                     </li>
                 </ul>

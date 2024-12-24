@@ -26,4 +26,13 @@ class Admin extends BaseController
         ];
         return view('admin/data_siswa', $data);
     }
+    public function sign_in()
+    {
+        return view('admin/sign_in');
+    }
+    public function sign_out()
+    {
+        session()->destroy();
+        return redirect()->to('/admin/sign_in');
+    }
 }
