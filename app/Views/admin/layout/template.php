@@ -50,8 +50,8 @@
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                             <div class="dropdown-header text-center">
                                 <img class="img-sm rounded-circle" src="https://skipatma.vercel.app/img/logo.png" alt="Profile image">
-                                <p class="mb-1 mt-3 font-weight-semibold">Nama Admin</p>
-                                <p class="fw-light text-muted mb-0">email@admin.com</p>
+                                <p class="mb-1 mt-3 font-weight-semibold"><?= session()->get('nama_admin') ?></p>
+                                <p class="fw-light text-muted mb-0"><?= session()->get('email') ?></p>
                             </div>
                             <a class="dropdown-item" href="<?= base_url('admin/sign_out') ?>"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
                         </div>
