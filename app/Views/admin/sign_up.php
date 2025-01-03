@@ -10,8 +10,8 @@
                             <img src="https://skipatma.vercel.app/img/logo.png" alt="logo">
                         </div>
                         <h4 class="text-center">PPDB SMK ISLAM 45 WIRADESA</h4>
-                        <h6 class="fw-light text-center">Masuk untuk melanjutkan.</h6>
-                        <form class="pt-3" method="post" action="<?= base_url('admin/storeAuth') ?>">
+                        <h6 class="fw-light text-center">Pendaftaran User Admin</h6>
+                        <form class="pt-3" method="post" action="<?= base_url('admin/storeAdmin') ?>">
                             <?php if (session()->getFlashdata('message')): ?>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <?= session()->getFlashdata('message') ?>
@@ -19,8 +19,14 @@
                                 </div>
                             <?php endif; ?>
                             <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" id="exampleInputNama1" placeholder="Nama Lengkap" name="nama" required>
+                            </div>
+                            <div class="form-group">
                                 <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
                                     placeholder="Username" name="username" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control form-control-lg" id="exampleInputPassword1"
@@ -28,7 +34,7 @@
                             </div>
                             <div class="mt-3 d-grid gap-2">
                                 <button type="submit" class="btn btn-block btn-primary btn-lg fw-medium auth-form-btn"
-                                    href="https://demo.bootstrapdash.com/star-admin2-free/dist/themes/vertical-default-light/index.html">MASUK</button>
+                                    href="https://demo.bootstrapdash.com/star-admin2-free/dist/themes/vertical-default-light/index.html">DAFTAR</button>
                             </div>
                         </form>
                     </div>

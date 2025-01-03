@@ -40,6 +40,30 @@ class Admin extends BaseController
     {
         return view('admin/sign_in');
     }
+    public function storeAuth()
+    {
+        $adminModel = new AdminModel();
+        $admin = $adminModel->where('username', $this->request->getPost('username'))->first();
+        if ($admin) {
+            $inputPassword = $this->request->getPost('password');
+            $storedPassword = $admin['password'];
+            if (password_verify($inputPassword, $storedPassword)) {
+                session()->set('username', $admin['username']);
+                session()->set('id', $admin['id']);
+                return redirect()->to('/admin/dashboard');
+            } else {
+                session()->setFlashdata('message', 'Password salah.');
+                return redirect()->to('/admin/sign_in');
+            }
+        } else {
+            session()->setFlashdata('message', 'Username salah.');
+            return redirect()->to('/admin/sign_in');
+        }
+    }
+    public function sign_up()
+    {
+        return view('admin/sign_up');
+    }
     public function sign_out()
     {
         session()->destroy();
