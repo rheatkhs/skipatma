@@ -78,6 +78,14 @@
                             <i class="menu-arrow"></i>
                         </a>
                     </li>
+                    <li class="nav-item nav-category">Pendaftaran</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('admin/daftar_ulang') ?>">
+                            <i class="menu-icon mdi mdi-account-file-outline"></i>
+                            <span class="menu-title">Daftar Ulang</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->

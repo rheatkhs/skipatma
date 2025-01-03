@@ -11,5 +11,6 @@ $routes->post('/sendMessage', 'Siswa::sendMessage');
 $routes->post('/storePendaftaran', 'Siswa::storePendaftaran');
 $routes->get('/admin/dashboard', 'Admin::index');
 $routes->get('/admin/data_siswa', 'Admin::data_siswa');
+$routes->get('/admin/daftar_ulang', 'Admin::daftar_ulang');
 $routes->get('/admin/sign_in', 'Admin::sign_in');
 $routes->get('/admin/sign_out', 'Admin::sign_out');

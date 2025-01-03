@@ -26,6 +26,16 @@ class Admin extends BaseController
         ];
         return view('admin/data_siswa', $data);
     }
+    public function daftar_ulang()
+    {
+        $siswaModel = new SiswaModel();
+        $siswaDaftar = $siswaModel->where('status', 'BELUM DAFTAR ULANG')->findAll();
+        $data = [
+            'title' => 'Daftar Ulang',
+            'siswa' => $siswaDaftar
+        ];
+        return view('admin/daftar_ulang', $data);
+    }
     public function sign_in()
     {
         return view('admin/sign_in');

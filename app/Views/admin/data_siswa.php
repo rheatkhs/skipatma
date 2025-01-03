@@ -13,7 +13,7 @@
                                 <th>Nama Siswa</th>
                                 <th>NISN</th>
                                 <th>Asal Sekolah</th>
-                                <th>Jurusan</th>
+                                <!-- <th>Jurusan</th> -->
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -26,10 +26,15 @@
                                     <td><?= $s['nama'] ?></td>
                                     <td><?= $s['nisn'] ?></td>
                                     <td><?= $s['asal_sekolah'] ?></td>
-                                    <td><?= $s['jurusan'] ?></td>
+                                    <!-- <td><?= $s['jurusan'] ?></td> -->
                                     <td>
                                         <a href="/admin/data_siswa/<?= $s['id'] ?>" class="btn btn-primary btn-sm btn-rounded btn-icon"><i class="mdi mdi-eye"></i> Detail</a>
-                                        <a href="/admin/daftar_ulang/<?= $s['id'] ?>" class="btn btn-dark btn-sm btn-rounded btn-icon"><i class="mdi mdi-calendar-refresh-outline"></i> Daftar Ulang</a>
+                                        <a href="/admin/data_siswa/edit/<?= $s['id'] ?>" class="btn btn-warning btn-sm btn-rounded btn-icon"><i class="mdi mdi-pencil"></i> Edit</a>
+                                        <form action="/admin/data_siswa/delete/<?= $s['id'] ?>" method="POST" class="d-inline">
+                                            <button type="submit" class="btn btn-danger btn-sm btn-rounded btn-icon" onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+                                                <i class="mdi mdi-delete"></i> Hapus
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
