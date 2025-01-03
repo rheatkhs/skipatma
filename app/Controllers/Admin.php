@@ -38,6 +38,9 @@ class Admin extends BaseController
     }
     public function sign_in()
     {
+        if (session()->get('logged_in')) {
+            return redirect()->to('/admin/dashboard');
+        }
         return view('admin/sign_in');
     }
     public function storeAuth()
