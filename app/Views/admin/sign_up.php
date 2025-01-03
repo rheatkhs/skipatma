@@ -19,11 +19,11 @@
                                 </div>
                             <?php endif; ?>
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-lg" id="exampleInputNama1" placeholder="Nama Lengkap" name="nama" required>
+                                <input type="text" class="form-control form-control-lg" id="exampleInputNama1" placeholder="Nama Lengkap" name="nama_admin" autofocus required>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-lg" id="exampleInputEmail1"
-                                    placeholder="Username" name="username" autofocus required>
+                                    placeholder="Username" name="username" required>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" name="email" required>

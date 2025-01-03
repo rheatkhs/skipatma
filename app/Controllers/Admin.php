@@ -48,21 +48,40 @@ class Admin extends BaseController
             $inputPassword = $this->request->getPost('password');
             $storedPassword = $admin['password'];
             if (password_verify($inputPassword, $storedPassword)) {
-                session()->set('username', $admin['username']);
-                session()->set('id', $admin['id']);
+                $data = [
+                    'id' => $admin['id'],
+                    'nama_admin' => $admin['nama_admin'],
+                    'username' => $admin['username'],
+                    'email' => $admin['email'],
+                    'logged_in' => true
+                ];
+                session()->set($data);
                 return redirect()->to('/admin/dashboard');
             } else {
                 session()->setFlashdata('message', 'Password salah.');
                 return redirect()->to('/admin/sign_in');
             }
         } else {
-            session()->setFlashdata('message', 'Username salah.');
+            session()->setFlashdata('message', 'Username tidak ditemukan.');
             return redirect()->to('/admin/sign_in');
         }
     }
     public function sign_up()
     {
         return view('admin/sign_up');
+    }
+    public function storeAdmin()
+    {
+        $adminModel = new AdminModel();
+        $data = [
+            'nama_admin' => $this->request->getPost('nama_admin'),
+            'username' => $this->request->getPost('username'),
+            'email' => $this->request->getPost('email'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT)
+        ];
+        $adminModel->insert($data);
+        session()->setFlashdata('success', 'Berhasil mendaftar, silahkan login.');
+        return redirect()->to('/admin/sign_in');
     }
     public function sign_out()
     {

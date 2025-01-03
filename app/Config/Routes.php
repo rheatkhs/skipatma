@@ -15,4 +15,5 @@ $routes->get('/admin/daftar_ulang', 'Admin::daftar_ulang');
 $routes->get('/admin/sign_in', 'Admin::sign_in');
 $routes->post('/admin/storeAuth', 'Admin::storeAuth');
 $routes->get('/admin/sign_up', 'Admin::sign_up');
+$routes->post('/admin/storeAdmin', 'Admin::storeAdmin');
 $routes->get('/admin/sign_out', 'Admin::sign_out');
