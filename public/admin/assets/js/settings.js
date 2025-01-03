@@ -81,5 +81,29 @@
       $(".tiles").removeClass("selected");
       $(this).addClass("selected");
     });
+    $(".tiles.default").on("click" , function(){
+      $(".navbar").removeClass(navbar_classes);
+      $(".tiles").removeClass("selected");
+      $(this).addClass("selected");
+    });
+
+    $(".color-theme.default").click(function(){
+      $(".color-theme.default").attr({
+        "href" : "https://www.bootstrapdash.com/demo/star-admin2-pro/template/demo/vertical-default-light/index.html",
+        "title" : "Light"
+      });
+    });
+    $(".color-theme.dark").click(function(){
+      $(".color-theme.dark").attr({
+        "href" : "https://www.bootstrapdash.com/demo/star-admin2-pro/template/demo/vertical-default-dark/index.html",
+        "title" : "Dark"
+      });
+    });
+    $(".color-theme.brown").click(function(){
+      $(".color-theme.brown").attr({
+        "href" : "https://www.bootstrapdash.com/demo/star-admin2-pro/template/demo/vertical-default-brown/index.html",
+        "title" : "Brown"
+      });
+    });
   });
 })(jQuery);

@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/simple-line-icons/css/simple-line-icons.css') ?>">
     <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/css/vendor.bundle.base.css') ?>">
     <link rel="stylesheet" href="<?= base_url('admin/assets/css/vertical-layout-light/style.css') ?>">
+
+    <!-- <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css') ?>"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+
     <link rel="shortcut icon" href="https://skipatma.vercel.app/img/logo.png" />
 </head>
 
@@ -36,7 +40,7 @@
             <div class="navbar-menu-wrapper d-flex align-items-top">
                 <ul class="navbar-nav">
                     <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
-                        <h1 class="welcome-text">Selamat Pagi, <span class="text-black fw-bold">Orang Hitam</span></h1>
+                        <h1 class="welcome-text"><span class="text-black fw-bold">PPDB SMK ISLAM 45 WIRADESA</span></h1>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
@@ -129,6 +133,16 @@
     <script src="<?= base_url('admin/assets/js/jquery.cookie.js') ?>" type="text/javascript"></script>
     <script src="<?= base_url('admin/assets/js/dashboard.js') ?>"></script>
     <script src="<?= base_url('admin/assets/js/proBanner.js') ?>"></script>
+    <!-- <script src="<?= base_url('admin/assets/vendors/datatables.net/jquery.dataTables.js') ?>"></script> -->
+    <!-- <script src="<?= base_url('admin/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js') ?>"></script> -->
+    <!-- <script src="<?= base_url('admin/assets/js/data-table.js') ?>"></script> -->
+
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#order-listing').DataTable();
+        });
+    </script>
 </body>
 
 </html>

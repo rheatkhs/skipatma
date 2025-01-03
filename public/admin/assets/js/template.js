@@ -1,6 +1,6 @@
-(function($) {
+(function ($) {
   'use strict';
-  $(function() {
+  $(function () {
     var body = $('body');
     var contentWrapper = $('.content-wrapper');
     var scroller = $('.container-scroller');
@@ -9,6 +9,16 @@
 
     //Add active class to nav-link based on url dynamically
     //Active class can be hard coded directly in html file also as required
+
+    // const $ctaBox = $('.sidebar-cta');
+
+    // if (body.hasClass('cta')) {
+    //   $ctaBox.css('display', 'flex');
+    //   console.log('Trigered');
+    // } else {
+    //   $ctaBox.css('display', 'none');
+    //   console.log('canceled!!');
+    // }
 
     function addActiveClass(element) {
       if (current === "") {
@@ -36,19 +46,19 @@
     }
 
     var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
-    $('.nav li a', sidebar).each(function() {
+    $('.nav li a', sidebar).each(function () {
       var $this = $(this);
       addActiveClass($this);
     })
 
-    $('.horizontal-menu .nav li a').each(function() {
+    $('.horizontal-menu .nav li a').each(function () {
       var $this = $(this);
       addActiveClass($this);
     })
 
     //Close other submenu in sidebar on opening any
 
-    sidebar.on('show.bs.collapse', '.collapse', function() {
+    sidebar.on('show.bs.collapse', '.collapse', function () {
       sidebar.find('.collapse.show').collapse('hide');
     });
 
@@ -66,18 +76,19 @@
           const chatsScroll = new PerfectScrollbar('.chats');
         }
         if (body.hasClass("sidebar-fixed")) {
-          if($('#sidebar').length) {
+          if ($('#sidebar').length) {
             var fixedSidebarScroll = new PerfectScrollbar('#sidebar .nav');
           }
         }
       }
     }
 
-    $('[data-bs-toggle="minimize"]').on("click", function() {
+    $('[data-bs-toggle="minimize"]').on("click", function () {
       if ((body.hasClass('sidebar-toggle-display')) || (body.hasClass('sidebar-absolute'))) {
         body.toggleClass('sidebar-hidden');
       } else {
         body.toggleClass('sidebar-icon-only');
+        $('.sidebar-cta').toggleClass('cta-hide')
       }
     });
 
@@ -85,22 +96,22 @@
     $(".form-check label,.form-radio label").append('<i class="input-helper"></i>');
 
     //Horizontal menu in mobile
-    $('[data-toggle="horizontal-menu-toggle"]').on("click", function() {
+    $('[data-toggle="horizontal-menu-toggle"]').on("click", function () {
       $(".horizontal-menu .bottom-navbar").toggleClass("header-toggled");
     });
     // Horizontal menu navigation in mobile menu on click
     var navItemClicked = $('.horizontal-menu .page-navigation >.nav-item');
-    navItemClicked.on("click", function(event) {
-      if(window.matchMedia('(max-width: 991px)').matches) {
-        if(!($(this).hasClass('show-submenu'))) {
+    navItemClicked.on("click", function (event) {
+      if (window.matchMedia('(max-width: 991px)').matches) {
+        if (!($(this).hasClass('show-submenu'))) {
           navItemClicked.removeClass('show-submenu');
         }
         $(this).toggleClass('show-submenu');
-      }        
+      }
     })
 
-    $(window).scroll(function() {
-      if(window.matchMedia('(min-width: 992px)').matches) {
+    $(window).scroll(function () {
+      if (window.matchMedia('(min-width: 992px)').matches) {
         var header = $('.horizontal-menu');
         if ($(window).scrollTop() >= 70) {
           $(header).addClass('fixed-on-scroll');
@@ -109,18 +120,77 @@
         }
       }
     });
+    if ($("#datepicker-popup").length) {
+      $('#datepicker-popup').datepicker({
+        enableOnReadonly: true,
+        todayHighlight: true,
+      });
+      $("#datepicker-popup").datepicker("setDate", "0");
+    }
+
+  });
+
+  //check all boxes in order status 
+  $("#check-all").click(function () {
+    $(".form-check-input").prop('checked', $(this).prop('checked'));
   });
 
   // focus input when clicking on search icon
-  $('#navbar-search-icon').click(function() {
+  $('#navbar-search-icon').click(function () {
     $("#navbar-search-input").focus();
   });
-  if ($("#datepicker-popup").length) {
-    $('#datepicker-popup').datepicker({
-      enableOnReadonly: true,
-      todayHighlight: true,
-    });
-    $("#datepicker-popup").datepicker("setDate", "0");
-  }
-  
+
+  $(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+
+    //>=, not <=
+    if (scroll >= 97) {
+      //clearHeader, not clearheader - caps H
+      $(".fixed-top").addClass("headerLight");
+    }
+    else {
+      $(".fixed-top").removeClass("headerLight");
+    }
+  }); //missing );
 })(jQuery);
+
+// Link redirection 
+function redirection(url) {
+  // create show message
+  const message = document.createElement('div')
+
+  message.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: black;
+      color: white;
+      padding: 8rem;
+      font-size: 24px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+  `
+  message.textContent =  'Redirecting to Pro Demo....'
+  document.body.appendChild(message)
+
+  setTimeout(() => {
+    window.open(url, '_blank')
+    message.remove()
+  }, 1500)
+}
+
+//CTA button hover
+const ctaBtn = document.getElementById('cta-trigger')
+const crownblack = document.querySelector('.crown-black')
+const crownwhite = document.querySelector('.crown-white')
+
+ctaBtn.addEventListener('mouseover', () => {
+  crownwhite.classList.remove('cta-hover')
+  crownblack.classList.add('cta-hover')
+})
+ctaBtn.addEventListener('mouseout', () => {
+  crownwhite.classList.add('cta-hover')
+  crownblack.classList.remove('cta-hover')
+})

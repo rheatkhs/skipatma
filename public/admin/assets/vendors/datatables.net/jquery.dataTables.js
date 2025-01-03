@@ -54,7 +54,7 @@
 			};
 		}
 		else {
-			module.exports = factory( jq, window, window.document );
+			return factory( jq, window, window.document );
 		}
 	}
 	else {
@@ -8583,13 +8583,7 @@
 					row = data[i];
 	
 					if ( row._details ) {
-						row._details.each(function () {
-							var el = $(this).children('td');
-	
-							if (el.length == 1) {
-								el.attr('colspan', visible);
-							}
-						});
+						row._details.children('td[colspan]').attr('colspan', visible );
 					}
 				}
 			} );

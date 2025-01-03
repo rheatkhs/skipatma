@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h4 class="card-title">Daftar Ulang</h4>
                 <div class="table-responsive">
-                    <table class="table table-hover" id="dataSiswa">
+                    <table class="table table-hover" id="order-listing">
                         <thead>
                             <tr>
                                 <th>No</th>
