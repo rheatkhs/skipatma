@@ -26,6 +26,18 @@ class Admin extends BaseController
         ];
         return view('admin/data_siswa', $data);
     }
+
+    public function detail_siswa($id)
+    {
+        $siswaModel = new SiswaModel();
+        $siswa = $siswaModel->where('id', $id)->first();
+        $data = [
+            'title' => 'Detail Siswa - ' . $siswa['nama'],
+            'siswa' => $siswa
+        ];
+        return view('admin/detail_siswa', $data);
+    }
+
     public function daftar_ulang()
     {
         $siswaModel = new SiswaModel();

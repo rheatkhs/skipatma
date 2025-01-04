@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin | <?= $title ?></title>
     <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/feather/feather.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/mdi/css/materialdesignicons.min.css') ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/ti-icons/css/themify-icons.css') ?>">
     <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/typicons/typicons.css') ?>">
     <link rel="stylesheet" href="<?= base_url('admin/assets/vendors/simple-line-icons/css/simple-line-icons.css') ?>">
@@ -25,7 +25,7 @@
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
                 <div class="me-3">
                     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
-                        <span class="icon-menu"></span>
+                        <span class="mdi mdi-menu"></span>
                     </button>
                 </div>
                 <div>

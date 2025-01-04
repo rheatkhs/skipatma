@@ -153,7 +153,7 @@
                             <table id="calonPesertaDidik" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th style="text-align: center !important;">No</th>
                                         <th style="text-align: center !important;">NISN</th>
                                         <th style="text-align: center !important;">Nama Peserta Didik</th>
                                         <th style="text-align: center !important;">Kompetensi Keahlian</th>

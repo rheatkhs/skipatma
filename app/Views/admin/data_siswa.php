@@ -9,7 +9,7 @@
                     <table class="table table-hover" id="order-listing">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th class="text-center">No</th>
                                 <th class="text-center">Nama Siswa</th>
                                 <th class="text-center">NISN</th>
                                 <th class="text-center">Asal Sekolah</th>
@@ -28,7 +28,7 @@
                                     <td class="text-left"><?= $s['asal_sekolah'] ?></td>
                                     <td class="text-left"><?= $s['jurusan'] ?></td>
                                     <td class="text-center">
-                                        <a href="/admin/data_siswa/<?= $s['id'] ?>" class="btn btn-primary btn-sm btn-icon"><i class="mdi mdi-eye"></i> Detail</a>
+                                        <a href="<?= base_url('admin/data_siswa/detail_siswa/' . $s['id']) ?>" class="btn btn-primary btn-sm btn-icon"><i class="mdi mdi-eye"></i> Detail</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
