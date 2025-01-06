@@ -11,6 +11,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif; ?>
+                <?php if (session()->getFlashdata('success')): ?>
+                    <div class="mt-3 alert alert-fill-success alert-dismissible fade show" role="alert">
+                        <?= session()->getFlashdata('success') ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+                <?php if (session()->getFlashdata('error')): ?>
+                    <div class="mt-3 alert alert-fill-danger alert-dismissible fade show" role="alert">
+                        <?= session()->getFlashdata('error') ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
                 <a href="<?= base_url('admin/tambah_siswa') ?>" class="btn btn-primary btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-1"><i class="mdi mdi-plus"></i> Tambah Siswa</a>
                 <div class="modal fade" id="exampleModal-1" tabindex="0" role="dialog"
                     aria-labelledby="exampleModalLabel-1" aria-hidden="true">
@@ -23,7 +35,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form class="form-sample" action="<?= base_url('storePendaftaran') ?>" method="post">
+                                <form class="form-sample" action="<?= base_url('storePendaftaranAdmin') ?>" method="post">
                                     <div class="form-group mb-3">
                                         <label for="nama">Nama Lengkap <span class="text-danger">(GUNAKAN HURUF
                                                 KAPITAL)</span></label>
