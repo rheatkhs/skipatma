@@ -23,7 +23,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form class="form-sample" action="<?= base_url('savePendaftaran') ?>" method="post">
+                                <form class="form-sample" action="<?= base_url('storePendaftaran') ?>" method="post">
                                     <div class="form-group mb-3">
                                         <label for="nama">Nama Lengkap <span class="text-danger">(GUNAKAN HURUF
                                                 KAPITAL)</span></label>

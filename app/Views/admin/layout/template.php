@@ -90,6 +90,14 @@
                             <i class="menu-arrow"></i>
                         </a>
                     </li>
+                    <li class="nav-item nav-category">Laporan</li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('admin/riwayat') ?>">
+                            <i class="menu-icon mdi mdi-history"></i>
+                            <span class="menu-title">Riwayat</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- partial -->

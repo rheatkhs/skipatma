@@ -28,7 +28,28 @@
                                     <td class="text-left"><?= $s['asal_sekolah'] ?></td>
                                     <td class="text-left"><?= $s['jurusan'] ?></td>
                                     <td class="text-center">
-                                        <a href="/admin/daftar_ulang/<?= $s['id'] ?>" class="btn btn-dark btn-sm btn-icon"><i class="mdi mdi-calendar-refresh-outline"></i> Daftar Ulang</a>
+                                        <a href="<?= base_url('admin/daftar_ulang/siswa/' . $s['id']) ?>" class="btn btn-dark btn-sm btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal-1"><i class="mdi mdi-file-lock-outline"></i> Daftar Ulang</a>
+                                        <div class="modal fade" id="exampleModal-1" tabindex="0" role="dialog"
+                                            aria-labelledby="exampleModalLabel-1" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel-1">Daftar Ulang</h5>
+                                                        <button clas type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Apakah anda yakin ingin melanjutkan daftar ulang siswa ini?</p>
+                                                        <p class="text-dark"><b><?= $s['nama'] ?></b></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-rounded" data-bs-dismiss="modal">Batal</button>
+                                                        <a href="<?= base_url('admin/daftar_ulang/siswa/') . $s['id'] ?>" class="btn btn-dark btn-rounded">Daftar Ulang</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

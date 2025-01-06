@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\AdminModel;
 use App\Models\SiswaModel;
+use App\Models\DaftarUlangModel;
 
 class Admin extends BaseController
 {
@@ -75,6 +76,47 @@ class Admin extends BaseController
             'siswa' => $siswaDaftar
         ];
         return view('admin/daftar_ulang', $data);
+    }
+    public function daftar_ulang_siswa($id)
+    {
+        $siswaModel = new SiswaModel();
+        $daftarUlangModel = new DaftarUlangModel();
+        $siswaModel->update($id, ['status' => 'SUDAH DAFTAR ULANG']);
+        $data = [
+            'timestamp' => date('Y-m-d H:i:s'),
+            'id_siswa' => $id,
+            'id_admin' => session()->get('id')
+        ];
+        $daftarUlangModel->insert($data);
+        session()->setFlashdata('message', 'Siswa berhasil daftar ulang.');
+        return redirect()->to('/admin/riwayat');
+    }
+    public function riwayat()
+    {
+        $daftarUlangModel = new DaftarUlangModel();
+        $siswaModel = new SiswaModel();
+        $adminModel = new AdminModel();
+        $data = [];
+        foreach ($daftarUlangModel->findAll() as $d) {
+            $timestamp = $d['timestamp'];
+            $nama = $siswaModel->where('id', $d['id_siswa'])->first()['nama'];
+            $nisn = $siswaModel->where('id', $d['id_siswa'])->first()['nisn'];
+            $jurusan = $siswaModel->where('id', $d['id_siswa'])->first()['jurusan'];
+            $admin = $adminModel->where('id', $d['id_admin'])->first()['nama_admin'];
+            $data[] = [
+                'timestamp' => $timestamp,
+                'nama' => $nama,
+                'nisn' => $nisn,
+                'jurusan' => $jurusan,
+                'admin' => $admin
+            ];
+        }
+        $data = [
+            'title' => 'Riwayat',
+            'daftar_ulang' => $data
+        ];
+        // dd($data);
+        return view('admin/riwayat', $data);
     }
     public function sign_in()
     {
