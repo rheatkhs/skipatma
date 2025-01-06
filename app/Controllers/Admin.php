@@ -58,6 +58,14 @@ class Admin extends BaseController
         return redirect()->to('/admin/data_siswa/detail_siswa/' . $id);
     }
 
+    public function hapus_siswa($id)
+    {
+        $siswaModel = new SiswaModel();
+        $siswaModel->delete($id);
+        session()->setFlashdata('message', 'Data siswa berhasil dihapus.');
+        return redirect()->to('/admin/data_siswa');
+    }
+
     public function daftar_ulang()
     {
         $siswaModel = new SiswaModel();

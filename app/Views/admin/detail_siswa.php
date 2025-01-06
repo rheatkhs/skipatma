@@ -11,7 +11,28 @@
                 </ol>
             </nav>
             <div>
-                <a href="<?= base_url('admin/hapus_siswa/') . $siswa['id'] ?>" class="btn btn-danger btn-sm btn-icon"><i class="mdi mdi-trash-can"></i> Hapus</a>
+                <a href="<?= base_url('admin/hapus_siswa/') . $siswa['id'] ?>" class="btn btn-danger btn-sm btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal-1"><i class="mdi mdi-trash-can"></i> Hapus</a>
+                <div class="modal fade" id="exampleModal-1" tabindex="0" role="dialog"
+                    aria-labelledby="exampleModalLabel-1" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel-1">Hapus Siswa</h5>
+                                <button clas type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah anda yakin ingin menghapus data ini?</p>
+                                <p class="text-danger"><b><?= $siswa['nama'] ?></b></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-rounded" data-bs-dismiss="modal">Batal</button>
+                                <a href="<?= base_url('admin/hapus_siswa/') . $siswa['id'] ?>" class="btn btn-danger btn-rounded">Hapus</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <a href="<?= base_url('admin/edit_siswa/') . $siswa['id'] ?>" class="btn btn-primary btn-sm btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal-2"><i class="mdi mdi-pencil"></i> Edit</a>
                 <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel-2" aria-hidden="true">
