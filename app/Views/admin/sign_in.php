@@ -13,7 +13,7 @@
                         <h6 class="fw-light text-center">Masuk untuk melanjutkan.</h6>
                         <form class="pt-3" method="post" action="<?= base_url('admin/storeAuth') ?>">
                             <?php if (session()->getFlashdata('message')): ?>
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <div class="alert alert-fill-danger alert-dismissible fade show" role="alert">
                                     <?= session()->getFlashdata('message') ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>

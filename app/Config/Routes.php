@@ -12,6 +12,8 @@ $routes->post('/storePendaftaran', 'Siswa::storePendaftaran');
 $routes->get('/admin/dashboard', 'Admin::index');
 $routes->get('/admin/data_siswa', 'Admin::data_siswa');
 $routes->get('/admin/data_siswa/detail_siswa/(:segment)', 'Admin::detail_siswa/$1');
+$routes->get('/admin/hapus_siswa/(:segment)', 'Admin::hapus_siswa/$1');
+$routes->post('/admin/saveSiswa/(:segment)', 'Admin::saveSiswa/$1');
 $routes->get('/admin/daftar_ulang', 'Admin::daftar_ulang');
 $routes->get('/admin/sign_in', 'Admin::sign_in');
 $routes->post('/admin/storeAuth', 'Admin::storeAuth');

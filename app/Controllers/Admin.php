@@ -38,6 +38,26 @@ class Admin extends BaseController
         return view('admin/detail_siswa', $data);
     }
 
+    public function saveSiswa($id)
+    {
+        $siswaModel = new SiswaModel();
+        $data = [
+            'nama' => $this->request->getPost('nama'),
+            'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
+            'jurusan' => $this->request->getPost('jurusan'),
+            'tempat_lahir' => $this->request->getPost('tempat_lahir'),
+            'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
+            'alamat_lengkap' => $this->request->getPost('alamat_lengkap'),
+            'asal_sekolah' => $this->request->getPost('asal_sekolah'),
+            'nisn' => $this->request->getPost('nisn'),
+            'nik' => $this->request->getPost('nik'),
+            'no_wa' => $this->request->getPost('no_wa')
+        ];
+        $siswaModel->update($id, $data);
+        session()->setFlashdata('message', 'Data siswa berhasil diubah.');
+        return redirect()->to('/admin/data_siswa/detail_siswa/' . $id);
+    }
+
     public function daftar_ulang()
     {
         $siswaModel = new SiswaModel();
