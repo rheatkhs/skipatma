@@ -42,6 +42,8 @@
                                                     <div class="modal-body">
                                                         <p>Apakah anda yakin ingin melanjutkan daftar ulang siswa ini?</p>
                                                         <p class="text-dark"><b><?= $s['nama'] ?></b></p>
+                                                        <p class="text-dark"><b><?= $s['nisn'] ?></b></p>
+                                                        <p class="text-dark"><b><?= $s['jurusan'] ?></b></p>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-rounded" data-bs-dismiss="modal">Batal</button>
