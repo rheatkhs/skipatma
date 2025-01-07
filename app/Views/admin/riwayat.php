@@ -12,9 +12,10 @@
                                 <th class="text-center">No</th>
                                 <th class="text-center">Timestamp</th>
                                 <th class="text-center">Nama Siswa</th>
-                                <th class="text-center">NISN</th>
+                                <!-- <th class="text-center">NISN</th> -->
                                 <th class="text-center">Jurusan</th>
                                 <th class="text-center">Nama Admin</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -25,9 +26,12 @@
                                     <td class="text-center"><?= $no++ ?></td>
                                     <td class="text-center"><?= $d['timestamp'] ?></td>
                                     <td class="text-center"><?= $d['nama'] ?></td>
-                                    <td class="text-center"><?= $d['nisn'] ?></td>
+                                    <!-- <td class="text-center"><?= $d['nisn'] ?></td> -->
                                     <td class="text-center"><?= $d['jurusan'] ?></td>
                                     <td class="text-center"><?= $d['admin'] ?></td>
+                                    <td class="text-center">
+                                        <a href="<?= base_url('admin/kuitansi/' . $d['id']) ?>" class="btn btn-dark btn-sm"><i class="mdi mdi-file-lock-outline"></i> Kuitansi</a>
+                                    </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

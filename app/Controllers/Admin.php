@@ -131,12 +131,14 @@ class Admin extends BaseController
         $adminModel = new AdminModel();
         $data = [];
         foreach ($daftarUlangModel->findAll() as $d) {
+            $id = $d['id'];
             $timestamp = $d['timestamp'];
             $nama = $siswaModel->where('id', $d['id_siswa'])->first()['nama'];
             $nisn = $siswaModel->where('id', $d['id_siswa'])->first()['nisn'];
             $jurusan = $siswaModel->where('id', $d['id_siswa'])->first()['jurusan'];
             $admin = $adminModel->where('id', $d['id_admin'])->first()['nama_admin'];
             $data[] = [
+                'id' => $id,
                 'timestamp' => $timestamp,
                 'nama' => $nama,
                 'nisn' => $nisn,
@@ -150,6 +152,35 @@ class Admin extends BaseController
         ];
         // dd($data);
         return view('admin/riwayat', $data);
+    }
+    public function kuitansi()
+    {
+        $daftarUlangModel = new DaftarUlangModel();
+        $siswaModel = new SiswaModel();
+        $adminModel = new AdminModel();
+        $data = [];
+        foreach ($daftarUlangModel->findAll() as $d) {
+            $id = $d['id'];
+            $timestamp = $d['timestamp'];
+            $nama = $siswaModel->where('id', $d['id_siswa'])->first()['nama'];
+            $nisn = $siswaModel->where('id', $d['id_siswa'])->first()['nisn'];
+            $jurusan = $siswaModel->where('id', $d['id_siswa'])->first()['jurusan'];
+            $admin = $adminModel->where('id', $d['id_admin'])->first()['nama_admin'];
+            $data[] = [
+                'id' => $id,
+                'timestamp' => $timestamp,
+                'nama' => $nama,
+                'nisn' => $nisn,
+                'jurusan' => $jurusan,
+                'admin' => $admin
+            ];
+        }
+        $data = [
+            'title' => 'Kuitansi Daftar Ulang PPDB SMK Islam 45 Wiradesa',
+            'daftar_ulang' => $data
+        ];
+        // dd($data);
+        return view('admin/kuitansi', $data);
     }
     public function sign_in()
     {

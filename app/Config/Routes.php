@@ -18,6 +18,7 @@ $routes->post('/storePendaftaranAdmin', 'Admin::storePendaftaranAdmin');
 $routes->get('/admin/daftar_ulang', 'Admin::daftar_ulang');
 $routes->get('/admin/daftar_ulang/siswa/(:segment)', 'Admin::daftar_ulang_siswa/$1');
 $routes->get('/admin/riwayat', 'Admin::riwayat');
+$routes->get('/admin/kuitansi/(:segment)', 'Admin::kuitansi/$1');
 $routes->get('/admin/sign_in', 'Admin::sign_in');
 $routes->post('/admin/storeAuth', 'Admin::storeAuth');
 $routes->get('/admin/sign_up', 'Admin::sign_up');
