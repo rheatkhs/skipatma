@@ -153,33 +153,20 @@ class Admin extends BaseController
         // dd($data);
         return view('admin/riwayat', $data);
     }
-    public function kuitansi()
+    public function kuitansi($id)
     {
         $daftarUlangModel = new DaftarUlangModel();
+        $daftarUlang = $daftarUlangModel->where('id', $id)->first();
         $siswaModel = new SiswaModel();
+        $siswa = $siswaModel->where('id', $daftarUlang['id_siswa'])->first();
         $adminModel = new AdminModel();
-        $data = [];
-        foreach ($daftarUlangModel->findAll() as $d) {
-            $id = $d['id'];
-            $timestamp = $d['timestamp'];
-            $nama = $siswaModel->where('id', $d['id_siswa'])->first()['nama'];
-            $nisn = $siswaModel->where('id', $d['id_siswa'])->first()['nisn'];
-            $jurusan = $siswaModel->where('id', $d['id_siswa'])->first()['jurusan'];
-            $admin = $adminModel->where('id', $d['id_admin'])->first()['nama_admin'];
-            $data[] = [
-                'id' => $id,
-                'timestamp' => $timestamp,
-                'nama' => $nama,
-                'nisn' => $nisn,
-                'jurusan' => $jurusan,
-                'admin' => $admin
-            ];
-        }
+        $admin = $adminModel->where('id', $daftarUlang['id_admin'])->first();
         $data = [
-            'title' => 'Kuitansi Daftar Ulang PPDB SMK Islam 45 Wiradesa',
-            'daftar_ulang' => $data
+            'title' => 'Kuitansi - ' . $siswa['nama'],
+            'daftar_ulang' => $daftarUlang,
+            'siswa' => $siswa,
+            'admin' => $admin
         ];
-        // dd($data);
         return view('admin/kuitansi', $data);
     }
     public function sign_in()
