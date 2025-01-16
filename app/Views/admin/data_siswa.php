@@ -12,7 +12,7 @@
                     </div>
                 <?php endif; ?>
                 <?php if (session()->getFlashdata('success')): ?>
-                    <div class="mt-3 alert alert-fill-success alert-dismissible fade show" role="alert">
+                    <div class="mt-3 alert alert-fill-primary alert-dismissible fade show" role="alert">
                         <?= session()->getFlashdata('success') ?>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>

@@ -86,7 +86,9 @@ class Admin extends BaseController
             $sheet->setCellValue('G' . $row, $s['alamat']);
             $sheet->setCellValue('H' . $row, $s['asal_sekolah']);
             $sheet->setCellValue('I' . $row, $s['nisn']);
+            $sheet->getStyle('I' . $row)->getNumberFormat()->setFormatCode('0000000000');
             $sheet->setCellValue('J' . $row, $s['nik']);
+            $sheet->getStyle('J' . $row)->getNumberFormat()->setFormatCode('0000000000000000');
             $sheet->setCellValue('K' . $row, $s['no_wa']);
             $sheet->setCellValue('L' . $row, $s['status']);
             $row++;
