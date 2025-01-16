@@ -12,10 +12,28 @@ class Admin extends BaseController
 {
     public function index()
     {
-        $data = [
-            'title' => 'Dashboard',
+        $siswaModel = new SiswaModel();
+        $jurusan = [
+            'AKUNTANSI DAN KEUANGAN LEMBAGA',
+            'TEKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI',
+            'TEKNIK OTOMOTIF'
         ];
-        return view('admin/index', $data);
+        $jurusanCounts = [];
+        foreach ($jurusan as $j) {
+            $jurusanCounts[] = $siswaModel->where('jurusan', $j)->countAllResults();
+        }
+        $totalSiswaCount = $siswaModel->countAllResults();
+        $totalSiswaDaftarUlangCount = $siswaModel->where('status', 'SUDAH DAFTAR ULANG')->countAllResults();
+        $totalSiswaBelumDaftarUlangCount = $siswaModel->where('status', 'BELUM DAFTAR ULANG')->countAllResults();
+        $get5LastSiswa = $siswaModel->orderBy('id', 'desc')->limit(5)->findAll();
+        return view('admin/index', [
+            'title' => 'Dashboard',
+            'jurusanCounts' => $jurusanCounts,
+            'totalSiswaCount' => $totalSiswaCount,
+            'totalSiswaDaftarUlangCount' => $totalSiswaDaftarUlangCount,
+            'totalSiswaBelumDaftarUlangCount' => $totalSiswaBelumDaftarUlangCount,
+            'get5LastSiswa' => $get5LastSiswa
+        ]);
     }
     public function data_siswa()
     {
@@ -147,7 +165,7 @@ class Admin extends BaseController
             ];
         }
         $data = [
-            'title' => 'Riwayat',
+            'title' => 'Riwayat Daftar Ulang',
             'daftar_ulang' => $data
         ];
         // dd($data);

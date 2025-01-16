@@ -41,8 +41,8 @@
                                     <td class="text-left">1</td>
                                     <td class="text-left">Daftar Ulang Siswa Baru</td>
                                     <td>1</td>
-                                    <td>Rp. 500.000,00</td>
-                                    <td>Rp. 500.000,00</td>
+                                    <td>Rp. 290.000,00</td>
+                                    <td>Rp. 290.000,00</td>
                                 </tr>
                             </tbody>
                         </table>

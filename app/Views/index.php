@@ -125,6 +125,15 @@
                                 </div>
                                 <div class="alert alert-primary mt-3" role="alert">
                                     Calon Peserta didik datang dengan memakai seragam osis lengkap, rapi dan bersepatu.</div>
+
+                                <div class="alert alert-primary mt-3" role="alert">
+                                    <strong>Perhatian!</strong>
+                                    <small><br>
+                                        Setelah Daftar Silahkan Masuk Grup WhatsApp dibawah <a class="fw-bold"
+                                            href="https://chat.whatsapp.com/Kx7duengXl1HXcs8OTuqVq"
+                                            target="_blank"><span class="btn btn-success btn-sm">https://chat.whatsapp.com/Kx7duengXl1HXcs8OTuqVq</span></a>
+                                    </small>
+                                </div>
                                 <div class="row">
                                     <div class="col-12" id="prev-doc" style="display: none;">
                                         <embed src="<?= base_url('assets/file/dokumen-daftar-ulang.pdf') ?>" width="100%" height="500" type="application/pdf">

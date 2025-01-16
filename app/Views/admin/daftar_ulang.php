@@ -28,8 +28,8 @@
                                     <td class="text-left"><?= $s['asal_sekolah'] ?></td>
                                     <td class="text-left"><?= $s['jurusan'] ?></td>
                                     <td class="text-center">
-                                        <a href="<?= base_url('admin/daftar_ulang/siswa/' . $s['id']) ?>" class="btn btn-dark btn-sm btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal-1"><i class="mdi mdi-file-lock-outline"></i> Daftar Ulang</a>
-                                        <div class="modal fade" id="exampleModal-1" tabindex="0" role="dialog"
+                                        <a href="<?= base_url('admin/daftar_ulang/siswa/' . $s['id']) ?>" class="btn btn-dark btn-sm btn-icon" data-bs-toggle="modal" data-bs-target="#exampleModal-1-<?= $s['id'] ?>"><i class="mdi mdi-file-lock-outline"></i> Daftar Ulang</a>
+                                        <div class="modal fade" id="exampleModal-1-<?= $s['id'] ?>" tabindex="0" role="dialog"
                                             aria-labelledby="exampleModalLabel-1" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
