@@ -7,6 +7,8 @@ use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\AdminModel;
 use App\Models\SiswaModel;
 use App\Models\DaftarUlangModel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Admin extends BaseController
 {
@@ -44,6 +46,57 @@ class Admin extends BaseController
             'siswa' => $siswa
         ];
         return view('admin/data_siswa', $data);
+    }
+
+    public function export_siswa()
+    {
+        $siswaModel = new SiswaModel();
+        $siswa = $siswaModel->findAll();
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $headers = [
+            'Nomor Pendaftaran',
+            'Nama',
+            'Jenis Kelamin',
+            'Jurusan',
+            'Tempat Lahir',
+            'Tanggal Lahir',
+            'Alamat',
+            'Asal Sekolah',
+            'NISN',
+            'NIK',
+            'No WA',
+            'Status'
+        ];
+        $column = 'A';
+        foreach ($headers as $h) {
+            $sheet->setCellValue($column . '1', $h);
+            $column++;
+        }
+        $row = 2;
+        foreach ($siswa as $s) {
+            $sheet->setCellValue('A' . $row, $s['id']);
+            $sheet->setCellValue('B' . $row, $s['nama']);
+            $sheet->setCellValue('C' . $row, $s['jenis_kelamin']);
+            $sheet->setCellValue('D' . $row, $s['jurusan']);
+            $sheet->setCellValue('E' . $row, $s['tempat_lahir']);
+            $tanggalLahir = \PhpOffice\PhpSpreadsheet\Shared\Date::stringToExcel($s['tanggal_lahir']);
+            $sheet->setCellValue('F' . $row, $tanggalLahir);
+            $sheet->getStyle('F' . $row)->getNumberFormat()->setFormatCode('DD-MM-YYYY');
+            $sheet->setCellValue('G' . $row, $s['alamat']);
+            $sheet->setCellValue('H' . $row, $s['asal_sekolah']);
+            $sheet->setCellValue('I' . $row, $s['nisn']);
+            $sheet->setCellValue('J' . $row, $s['nik']);
+            $sheet->setCellValue('K' . $row, $s['no_wa']);
+            $sheet->setCellValue('L' . $row, $s['status']);
+            $row++;
+        }
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="Data Siswa Baru PPDB 2025.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer = new Xlsx($spreadsheet);
+        $writer->save('php://output');
+        exit;
     }
 
     public function detail_siswa($id)
