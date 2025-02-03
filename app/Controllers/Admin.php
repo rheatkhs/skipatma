@@ -27,14 +27,14 @@ class Admin extends BaseController
         $totalSiswaCount = $siswaModel->countAllResults();
         $totalSiswaDaftarUlangCount = $siswaModel->where('status', 'SUDAH DAFTAR ULANG')->countAllResults();
         $totalSiswaBelumDaftarUlangCount = $siswaModel->where('status', 'BELUM DAFTAR ULANG')->countAllResults();
-        $get5LastSiswa = $siswaModel->orderBy('id', 'desc')->limit(5)->findAll();
+        $getLastSiswa = $siswaModel->orderBy('id', 'desc')->limit(7)->findAll();
         return view('admin/index', [
             'title' => 'Dashboard',
             'jurusanCounts' => $jurusanCounts,
             'totalSiswaCount' => $totalSiswaCount,
             'totalSiswaDaftarUlangCount' => $totalSiswaDaftarUlangCount,
             'totalSiswaBelumDaftarUlangCount' => $totalSiswaBelumDaftarUlangCount,
-            'get5LastSiswa' => $get5LastSiswa
+            'getLastSiswa' => $getLastSiswa
         ]);
     }
     public function data_siswa()
@@ -86,9 +86,9 @@ class Admin extends BaseController
             $sheet->setCellValue('G' . $row, $s['alamat']);
             $sheet->setCellValue('H' . $row, $s['asal_sekolah']);
             $sheet->setCellValue('I' . $row, $s['nisn']);
-            $sheet->getStyle('I' . $row)->getNumberFormat()->setFormatCode('0000000000');
-            $sheet->setCellValue('J' . $row, $s['nik']);
-            $sheet->getStyle('J' . $row)->getNumberFormat()->setFormatCode('0000000000000000');
+            $nikValue = (string)$s['nik'];
+            $sheet->setCellValue('J' . $row, $nikValue);
+            $sheet->getStyle('J' . $row)->getNumberFormat()->setFormatCode('@');
             $sheet->setCellValue('K' . $row, $s['no_wa']);
             $sheet->setCellValue('L' . $row, $s['status']);
             $row++;
@@ -241,6 +241,18 @@ class Admin extends BaseController
             'admin' => $admin
         ];
         return view('admin/kuitansi', $data);
+    }
+
+    public function batal($id)
+    {
+        $daftarUlangModel = new DaftarUlangModel();
+        $siswaModel = new SiswaModel();
+        $siswa = $siswaModel->where('id', $daftarUlangModel->where('id', $id)->first()['id_siswa'])->first();
+        // dd($siswa);
+        $siswaModel->update($siswa['id'], ['status' => 'BELUM DAFTAR ULANG']);
+        $daftarUlangModel->delete($id);
+        session()->setFlashdata('message', 'Data daftar ulang berhasil dibatalkan.');
+        return redirect()->to('/admin/riwayat');
     }
     public function sign_in()
     {

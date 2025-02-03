@@ -35,6 +35,10 @@ class Siswa extends BaseController
     {
         return view('pendaftaran_online');
     }
+    public function grup_whatsapp()
+    {
+        return redirect()->to('https://chat.whatsapp.com/Kx7duengXl1HXcs8OTuqVq');
+    }
     public function storePendaftaran()
     {
         $siswaModel = new SiswaModel();

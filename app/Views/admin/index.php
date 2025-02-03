@@ -76,7 +76,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($get5LastSiswa as $s) : ?>
+                                    <?php foreach ($getLastSiswa as $s) : ?>
                                         <tr>
                                             <td><?= $s['nama'] ?></td>
                                             <!-- <td><?= $s['nisn'] ?></td> -->

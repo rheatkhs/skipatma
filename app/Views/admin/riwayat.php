@@ -30,6 +30,30 @@
                                     <td class="text-center"><?= $d['jurusan'] ?></td>
                                     <td class="text-center"><?= $d['admin'] ?></td>
                                     <td class="text-center">
+                                        <a href="<?= base_url('admin/batal/' . $d['id']) ?>" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-1"><i class="mdi mdi-trash-can"></i> Batal</a>
+                                        <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Batal Daftar Ulang</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Apakah anda yakin ingin membatalkan daftar ulang ini?</p>
+                                                        <p class="text-danger"><b><?= $d['nama'] ?></b></p>
+                                                        <p class="text-danger"><b><?= $d['nisn'] ?></b></p>
+                                                        <p class="text-danger"><b><?= $d['jurusan'] ?></b></p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-rounded" data-bs-dismiss="modal">Close</button>
+                                                        <a href="<?= base_url('admin/batal/' . $d['id']) ?>" class="btn btn-danger btn-rounded">Batal</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <a href="<?= base_url('admin/kuitansi/' . $d['id']) ?>" class="btn btn-dark btn-sm"><i class="mdi mdi-file-lock-outline"></i> Kuitansi</a>
                                     </td>
                                 </tr>

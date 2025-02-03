@@ -25,6 +25,7 @@
                 <?php endif; ?>
                 <a href="<?= base_url('admin/tambah_siswa') ?>" class="btn btn-primary btn-rounded btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal-1"><i class="mdi mdi-plus"></i> Tambah Siswa</a>
                 <a href="<?= base_url('admin/export_siswa') ?>" class="btn btn-dark btn-rounded btn-sm"><i class="mdi mdi-file-excel"></i> Export Excel</a>
+                <a href="<?= base_url('admin/export_siswa') ?>" class="btn btn-danger btn-rounded btn-sm"><i class="mdi mdi-file-pdf-box"></i> Export Pdf</a>
                 <div class="modal fade" id="exampleModal-1" tabindex="0" role="dialog"
                     aria-labelledby="exampleModalLabel-1" aria-hidden="true">
                     <div class="modal-dialog" role="document">
